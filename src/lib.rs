@@ -1,4 +1,5 @@
 mod rectangle;
+mod greeting;
 
 #[cfg(test)]
 mod tests {
@@ -40,5 +41,14 @@ mod tests {
         };
 
         assert!(!smaller.can_hold(&larger));
+    }
+
+    #[test]
+    fn greeting_containes_name() {
+        let result = greeting::greeting("Jack");
+        assert!(
+            result.contains("Jack"),
+            "Greeting did not contain name, value was `{}`", result
+        );
     }
 }
