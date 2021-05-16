@@ -1,5 +1,6 @@
 mod rectangle;
 mod greeting;
+mod guess;
 
 #[cfg(test)]
 mod tests {
@@ -50,5 +51,17 @@ mod tests {
             result.contains("Jack"),
             "Greeting did not contain name, value was `{}`", result
         );
+    }
+
+    #[test]
+    #[should_panic]
+    fn greater_than_100() {
+        guess::Guess::new(200);
+    }
+
+    #[test]
+    #[should_panic(expected = "Guess value must be less than or equal to 100")]
+    fn greater_than_100_expected() {
+        guess::Guess::new(200);
     }
 }
